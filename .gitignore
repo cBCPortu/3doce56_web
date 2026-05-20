@@ -1,0 +1,57 @@
+# =============================================================
+# .gitignore — repositorio 3doce56-web
+# -------------------------------------------------------------
+# Este repositorio es PUBLICO. Solo debe contener la web:
+#   index.html  +  assets/  +  privacy/  +  support/
+#
+# Todo artefacto del producto (codigo fuente, esquemas, builds,
+# documentacion interna, credenciales) queda EXCLUIDO de forma
+# explicita. Es la segunda linea de defensa; la primera es que
+# la carpeta de la web este aislada de C:\RelojSolarLunar\.
+# =============================================================
+
+# --- Codigo fuente y desarrollo del producto ---
+*.py
+*.ipynb
+__pycache__/
+.ipynb_checkpoints/
+
+# --- Esquemas y bases de datos ---
+*.sql
+*.sqlite
+*.db
+*.csv
+*.tsv
+
+# --- Documentacion interna del proyecto ---
+# (el sitio es 100% HTML; ningun .md debe publicarse)
+*.md
+
+# --- Builds y empaquetado ---
+*.exe
+*.nsi
+*.spec
+*.msi
+build/
+dist/
+
+# --- Material de trabajo no publicable ---
+*.docx
+*.xlsx
+*.pptx
+
+# --- Configuracion local y credenciales ---
+configuracion.json
+*.dat
+*.env
+.env
+*.key
+*.pem
+
+# --- Sistema operativo / editores ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+.vscode/
+.idea/
