@@ -272,6 +272,9 @@
       border-top:1px solid rgba(201,160,16,0.55);
     }
     .panel-sectores .panel-linea:last-child{border-bottom:none;padding-bottom:0}
+    /* panel-mobile — full-width copy of the panel, surfaced only on phones */
+    .panel-mobile{display:none}
+    .panel-mobile .panel-piece{margin:0 auto}
     .app-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
     .btn-primary{
       background:var(--teal);color:white;
@@ -429,6 +432,20 @@
       .nav-links li:not(:last-child){display:none}
       .theme-card{grid-template-columns:1fr;gap:20px}
       .theme-screenshot{width:240px;margin:0 auto}
+      /* ── PRODUCT block on phones — E1 layout ── */
+      /* chronogram retired on mobile: it only reads well beside the carousel */
+      .chronogram{display:none}
+      /* carousel arrows: smaller and flush to the edge, so they stop eating the video */
+      .carousel-arrow{width:32px;height:32px;font-size:23px;padding:0 0 4px}
+      .carousel-prev{left:0}
+      .carousel-next{right:0}
+      /* slides: trim the wide side padding so the laptop video regains width */
+      .slide{padding:24px 12px}
+      /* panel leaves the carousel: hide its slide + its dot, show the full-width copy */
+      .slide[data-slide="2"]{display:none}
+      .dot[data-go="2"]{display:none}
+      .panel-mobile{display:block;margin-top:30px}
+      .panel-mobile .panel-piece{padding:28px 22px}
     }
   </style>
 </head>
@@ -575,6 +592,36 @@
           </noscript>
 
         </div><!-- /carousel -->
+
+        <!-- panel-mobile — full-width copy of piece 3, shown only on phones (E1) -->
+        <div class="panel-mobile">
+          <div class="panel-piece" data-lang="en">
+            <p class="panel-titulo">What the clock reads from the sky</p>
+            <p class="panel-subtitulo">RelojSolarLunar</p>
+            <div class="panel-linea"><span class="panel-ancla">Time &amp; date</span><span class="panel-glosa">… taken from your system</span></div>
+            <div class="panel-linea"><span class="panel-ancla">City</span><span class="panel-glosa">… the one your connection points to</span></div>
+            <div class="panel-linea"><span class="panel-ancla">Sunrise &amp; sunset</span><span class="panel-glosa">… for that date, in that city</span></div>
+            <div class="panel-linea"><span class="panel-ancla">Solar noon</span><span class="panel-glosa">… the sky's noon, not the clock's</span></div>
+            <div class="panel-linea"><span class="panel-ancla">Moon</span><span class="panel-glosa">… in step with the real night sky</span></div>
+            <div class="panel-sectores">
+              <div class="panel-linea"><span class="panel-ancla">Blue sector</span><span class="panel-glosa">… every daylight hour</span></div>
+              <div class="panel-linea"><span class="panel-ancla">Starlit sector</span><span class="panel-glosa">… every hour of darkness</span></div>
+            </div>
+          </div>
+          <div class="panel-piece" data-lang="es">
+            <p class="panel-titulo">Lo que el reloj lee del cielo</p>
+            <p class="panel-subtitulo">RelojSolarLunar</p>
+            <div class="panel-linea"><span class="panel-ancla">Hora y fecha</span><span class="panel-glosa">… las determina tu sistema</span></div>
+            <div class="panel-linea"><span class="panel-ancla">Ciudad</span><span class="panel-glosa">… la que deduce tu conexión</span></div>
+            <div class="panel-linea"><span class="panel-ancla">Amanecer y puesta de sol</span><span class="panel-glosa">… los de esa fecha, en esa ciudad</span></div>
+            <div class="panel-linea"><span class="panel-ancla">Mediodía</span><span class="panel-glosa">… el del cielo, no el del reloj</span></div>
+            <div class="panel-linea"><span class="panel-ancla">Luna</span><span class="panel-glosa">… a igual ritmo que en el cielo nocturno</span></div>
+            <div class="panel-sectores">
+              <div class="panel-linea"><span class="panel-ancla">Sector azul</span><span class="panel-glosa">… todas las horas con luz</span></div>
+              <div class="panel-linea"><span class="panel-ancla">Sector estrellado</span><span class="panel-glosa">… todas las horas de oscuridad</span></div>
+            </div>
+          </div>
+        </div><!-- /panel-mobile -->
 
         <div class="app-ctas">
           <a href="#themes" class="btn-primary" data-lang="en">See the themes</a>
@@ -761,22 +808,33 @@
     var car=document.getElementById('carousel');
     if(!car) return;
     car.classList.add('js-on');                 // reveals arrows + dots
-    var slides=car.querySelectorAll('.slide');
-    var dots=car.querySelectorAll('.dot');
-    var n=slides.length, cur=0, timer=null;
+    var allSlides=car.querySelectorAll('.slide');
+    var allDots=car.querySelectorAll('.dot');
+    var cur=0, timer=null;
     var PANEL_MS=24000;                          // panel: 24 s, in step with the videos
 
     var vids=car.querySelectorAll('video');
     for(var k=0;k<vids.length;k++){vids[k].loop=false;vids[k].pause();}
 
+    /* live = currently rendered; the panel slide is display:none on phones,
+       so the carousel drives 3 pieces on desktop and 2 on mobile, automatically */
+    function isVisible(el){return el.offsetParent!==null;}
+    function liveSlides(){return Array.prototype.filter.call(allSlides,isVisible);}
+    function liveDots(){return Array.prototype.filter.call(allDots,isVisible);}
+
     function clearTimer(){if(timer){clearTimeout(timer);timer=null;}}
 
     function show(i){
       clearTimer();
-      var prevVid=slides[cur].querySelector('video');
-      if(prevVid){prevVid.pause();prevVid.onended=null;}
+      var slides=liveSlides(), dots=liveDots(), n=slides.length;
+      if(n===0) return;
+      for(var p=0;p<allSlides.length;p++){
+        var pv=allSlides[p].querySelector('video');
+        if(pv){pv.pause();pv.onended=null;}
+        allSlides[p].classList.remove('slide-active');
+      }
       cur=(i+n)%n;
-      for(var a=0;a<n;a++){slides[a].classList.toggle('slide-active',a===cur);}
+      slides[cur].classList.add('slide-active');
       for(var b=0;b<dots.length;b++){
         dots[b].classList.toggle('dot-active',b===cur);
         dots[b].setAttribute('aria-current',b===cur?'true':'false');
@@ -785,8 +843,8 @@
       if(v){
         v.currentTime=0;
         v.onended=function(){next();};
-        var p=v.play();
-        if(p&&p.catch){p.catch(function(){timer=setTimeout(next,PANEL_MS);});}
+        var pr=v.play();
+        if(pr&&pr.catch){pr.catch(function(){timer=setTimeout(next,PANEL_MS);});}
       }else{
         timer=setTimeout(next,PANEL_MS);          // panel slide
       }
@@ -796,11 +854,21 @@
 
     car.querySelector('.carousel-next').addEventListener('click',next);
     car.querySelector('.carousel-prev').addEventListener('click',prev);
-    for(var d=0;d<dots.length;d++){
+    for(var d=0;d<allDots.length;d++){
       (function(btn){
-        btn.addEventListener('click',function(){show(parseInt(btn.getAttribute('data-go'),10));});
-      })(dots[d]);
+        btn.addEventListener('click',function(){
+          var pos=liveDots().indexOf(btn);
+          if(pos>=0) show(pos);
+        });
+      })(allDots[d]);
     }
+
+    /* re-normalise if the viewport crosses the mobile breakpoint */
+    var rT=null;
+    window.addEventListener('resize',function(){
+      clearTimeout(rT);
+      rT=setTimeout(function(){show(cur);},200);
+    });
 
     show(0);
   })();
