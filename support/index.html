@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Reloj Solar Lunar · 3doce56</title>
+  <meta name="description" content="Support for RelojSolarLunar by Carlos Benito / 3doce56.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --teal:#0D5C6E;
+      --teal-dark:#0A3D4A;
+      --teal-deep:#071E25;
+      --gold:#C9A010;
+      --gold-light:#E8C040;
+      --sky:#88C3E6;
+      --cream:#FAFAF7;
+      --text:#0D1A1E;
+      --muted:#5A7A84;
+      --rule:rgba(13,92,110,0.10);
+      --serif:'Cormorant Garamond',Georgia,serif;
+      --sans:'DM Sans',sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);color:var(--text);background:var(--cream);overflow-x:hidden}
+
+    /* ── NAV ── */
+    nav.site-nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;padding:0 6%;
+      background:rgba(7,30,37,0.96);backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(13,92,110,0.25);
+    }
+    .nav-inner{max-width:1100px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:var(--serif);font-size:19px;font-weight:600;font-style:italic;color:rgba(255,255,255,0.9);text-decoration:none;letter-spacing:0.5px}
+    .nav-logo span{color:var(--gold-light)}
+    .nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+    .nav-links a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);text-decoration:none;font-weight:400;transition:color .2s}
+    .nav-links a:hover{color:rgba(255,255,255,0.85)}
+    .nav-links a.active{color:var(--gold-light);font-weight:500}
+    .lang-toggle{display:flex;border:1px solid rgba(255,255,255,0.15);border-radius:2px;overflow:hidden}
+    .lang-toggle button{background:transparent;border:none;font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;cursor:pointer;color:rgba(255,255,255,0.4);transition:background .2s,color .2s}
+    .lang-toggle button.active{background:var(--teal);color:white}
+    .lang-toggle button:not(.active):hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.7)}
+
+    /* ── HERO ── */
+    .page-hero{background:var(--teal-deep);padding:96px 6% 60px;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;top:-120px;right:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(201,160,16,0.06) 0%,transparent 65%);pointer-events:none}
+    .hero-inner{max-width:800px;margin:0 auto}
+    .product-id{display:flex;align-items:center;gap:16px;margin-bottom:32px}
+    .product-name{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:600;font-style:italic;color:rgba(255,255,255,0.90);letter-spacing:0.3px;line-height:1}
+    .product-name span{color:var(--gold-light)}
+    .product-divider{width:1px;height:28px;background:rgba(255,255,255,0.15);flex-shrink:0}
+    .page-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(201,160,16,0.7);font-weight:500}
+    .hero-title{font-family:var(--serif);font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1.05;color:white;margin-bottom:20px;letter-spacing:-0.3px}
+    .hero-title em{font-style:italic;color:var(--sky);font-weight:400}
+    .hero-meta{font-size:11px;letter-spacing:0.5px;color:rgba(255,255,255,0.28)}
+    .hero-meta strong{color:rgba(255,255,255,0.45)}
+    .hero-meta a{color:rgba(136,195,230,0.6);text-decoration:none;border-bottom:1px solid rgba(136,195,230,0.2);transition:color .2s,border-color .2s}
+    .hero-meta a:hover{color:var(--sky);border-bottom-color:var(--sky)}
+    .hero-bar{height:2px;background:linear-gradient(90deg,var(--teal) 0%,var(--gold) 100%)}
+
+    /* ── CONTENT ── */
+    .page-content{max-width:800px;margin:0 auto;padding:56px 6% 80px}
+    .toc{border:1px solid var(--rule);border-radius:2px;padding:28px 32px;margin-bottom:56px;background:white}
+    .toc-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px}
+    .toc ol{margin:0;padding-left:1.2rem;columns:2;column-gap:32px}
+    .toc li{margin-bottom:6px;break-inside:avoid;font-size:13px;color:var(--muted)}
+    .toc a{color:var(--teal);text-decoration:none}
+    .toc a:hover{color:var(--teal-dark);text-decoration:underline;text-underline-offset:3px}
+
+    .support-section{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--rule)}
+    .support-section:last-child{border-bottom:none;margin-bottom:0}
+    .sec-eyebrow{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:500;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+    .sec-eyebrow::before{content:'';width:16px;height:1px;background:var(--gold);opacity:0.6}
+    h2{font-family:var(--serif);font-size:clamp(20px,2.5vw,26px);font-weight:400;color:var(--teal-dark);margin-bottom:20px;line-height:1.2}
+    h3{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--teal);margin:28px 0 12px}
+    p{font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:16px;font-weight:300}
+    p strong{color:var(--text);font-weight:500}
+    p em{color:var(--teal);font-style:italic}
+    p a,li a{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+    p a:hover,li a:hover{color:var(--teal-dark)}
+    ul,ol{padding-left:1.3rem;margin-bottom:16px;font-size:14px;color:var(--muted);line-height:1.85;font-weight:300}
+    li{margin-bottom:6px}
+
+    /* Pull quote — designer-style declarative phrase */
+    .pull-quote{
+      font-family:var(--serif);font-size:clamp(22px,2.6vw,28px);
+      font-style:italic;font-weight:400;color:var(--teal);
+      line-height:1.3;margin:8px 0 24px;
+      padding-left:18px;border-left:2px solid var(--gold);
+    }
+
+    /* Table */
+    .table-wrap{overflow-x:auto;margin:16px 0 20px;border:1px solid var(--rule);border-radius:2px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    thead tr{background:white}
+    th{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:500;padding:12px 16px;text-align:left;border-bottom:1px solid var(--rule)}
+    td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--muted);vertical-align:top;line-height:1.6;font-weight:300}
+    tr:last-child td{border-bottom:none}
+    tr:nth-child(even) td{background:rgba(13,92,110,0.015)}
+
+    /* Callout */
+    .callout{background:white;border-left:2px solid var(--gold);border-radius:0 2px 2px 0;padding:14px 20px;margin:16px 0;font-size:13px;color:var(--muted);line-height:1.7;font-weight:300}
+    .callout strong{color:var(--text);font-weight:500}
+
+    /* Download (disabled placeholder) */
+    .download-row{
+      display:flex;flex-wrap:wrap;align-items:center;gap:14px;
+      margin-top:18px;
+    }
+    .btn-download{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:11px 22px;border-radius:2px;
+      font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+      transition:all .2s;
+      background:rgba(13,92,110,0.05);color:rgba(13,92,110,0.35);
+      border:1px solid rgba(13,92,110,0.12);
+      cursor:not-allowed;pointer-events:none;
+      text-decoration:none;
+    }
+    .btn-download .dot{
+      width:6px;height:6px;border-radius:50%;
+      background:var(--gold);opacity:0.5;
+    }
+    .download-note{
+      font-size:11px;letter-spacing:0.5px;color:var(--muted);font-style:italic;opacity:0.7;
+    }
+
+    /* Contact card */
+    .contact-card{background:var(--teal-deep);border-radius:4px;padding:32px;margin-top:20px;position:relative;overflow:hidden}
+    .contact-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,160,16,0.08) 0%,transparent 70%);pointer-events:none}
+    .contact-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(201,160,16,0.7);font-weight:500;margin-bottom:12px}
+    .contact-email{font-family:var(--serif);font-size:clamp(20px,2.5vw,28px);font-weight:400;color:white;margin-bottom:8px;letter-spacing:-0.2px}
+    .contact-email a{color:white;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2)}
+    .contact-email a:hover{border-bottom-color:var(--gold-light)}
+    .contact-meta{font-size:12px;color:rgba(255,255,255,0.45);font-weight:300;letter-spacing:0.3px}
+
+    /* ── FOOTER ── */
+    footer{background:var(--teal-dark);padding:48px 6%}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+    .footer-identity{display:inline-block}
+    .footer-brand{font-family:var(--serif);font-size:20px;font-style:italic;font-weight:600;color:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:flex-start;gap:6px;margin-bottom:8px}
+    .brand3{font-family:'Space Grotesk',var(--sans);font-style:normal;font-weight:700;font-size:26px;letter-spacing:-0.015em;line-height:1;text-decoration:none;color:var(--cream)}
+    .brand3 .doce{font-weight:500;color:#d8a425}
+    .footer-logo{height:48px;width:auto;display:block}
+    .footer-links{display:flex;gap:32px;list-style:none}
+    .footer-links a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.62);text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:rgba(255,255,255,0.95)}
+    .footer-copy{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:1px;white-space:nowrap}
+
+    [data-lang]{display:none}
+    body.lang-en [data-lang="en"]{display:block}
+    body.lang-es [data-lang="es"]{display:block}
+    @media(max-width:640px){.toc ol{columns:1}.product-divider{display:none}.nav-links li:not(:last-child){display:none}}
+  </style>
+</head>
+<body class="lang-en">
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../">Reloj<span>Solar</span>Lunar</a>
+    <ul class="nav-links">
+      <li><a href="../">App</a></li>
+      <li><a href="../support/" class="active">Support</a></li>
+      <li><a href="../privacy/">Privacy</a></li>
+      <li><a href="../terms/">Terms</a></li>
+      <li>
+        <div class="lang-toggle">
+          <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+          <button id="btn-es" onclick="setLang('es')">ES</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-inner">
+
+    <div class="product-id">
+      <div class="product-name">Reloj<span>Solar</span>Lunar</div>
+      <div class="product-divider"></div>
+      <div data-lang="en"><span class="page-label">Support</span></div>
+      <div data-lang="es"><span class="page-label">Soporte</span></div>
+    </div>
+
+    <div data-lang="en">
+      <h1 class="hero-title">Help,<br><em>when you need it.</em></h1>
+      <div class="hero-meta">
+        We answer within <strong>1–3 business days</strong>
+        &nbsp;·&nbsp; <a href="#" onclick="setLang('es');return false;">Ver en español</a>
+      </div>
+    </div>
+
+    <div data-lang="es">
+      <h1 class="hero-title">Ayuda,<br><em>cuando la necesite.</em></h1>
+      <div class="hero-meta">
+        Respondemos en <strong>1–3 días hábiles</strong>
+        &nbsp;·&nbsp; <a href="#" onclick="setLang('en');return false;">Read in English</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="hero-bar"></div>
+
+<!-- CONTENT -->
+<div class="page-content">
+
+  <!-- ════ ENGLISH ════ -->
+  <div data-lang="en">
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-label">Contents</div>
+      <ol>
+        <li><a href="#en-1">At a glance</a></li>
+        <li><a href="#en-2">Two themes, one app</a></li>
+        <li><a href="#en-3">Installations and slots</a></li>
+        <li><a href="#en-4">One purchase, no updates</a></li>
+        <li><a href="#en-5">Billing and refunds</a></li>
+        <li><a href="#en-6">System requirements</a></li>
+        <li><a href="#en-7">Offline behaviour</a></li>
+        <li><a href="#en-8">If your license key is misused</a></li>
+        <li><a href="#en-9">If we ever stop</a></li>
+        <li><a href="#en-10">Privacy and terms</a></li>
+        <li><a href="#en-11">Contact us</a></li>
+      </ol>
+    </nav>
+
+    <section class="privacy-section" id="en-1">
+      <div class="sec-eyebrow">Section 1</div>
+      <h2>At a glance</h2>
+      <div class="callout">Most things take care of themselves.</div>
+      <p>Buy. Activate. Run. The clock keeps time, validates itself in the background, and asks for nothing more. This page is for the rest — the few moments when you may want to know how something works, or reach a human.</p>
+      <p><strong>Activation email not in your inbox?</strong> Check spam and promotions, and verify the email you used at purchase. Activation emails are issued by your purchase platform — Gumroad or Microsoft Store — at the moment of payment.</p>
+    </section>
+
+    <section class="privacy-section" id="en-2">
+      <div class="sec-eyebrow">Section 2</div>
+      <h2>Two themes, one app</h2>
+      <p>One app. Two faces. <strong>Pergamino</strong> is warm and classic — parchment tones, serif typography, the feel of an old manuscript. <strong>Game on</strong> is bold and alive — green pitch, gold accents, the energy of the beautiful game. Same precision. Same data. Different soul.</p>
+      <div class="table-wrap"><table><thead><tr><th>Theme</th><th>Price</th><th>Available on</th></tr></thead><tbody><tr><td><strong>Pergamino</strong></td><td>USD 14.99</td><td>Gumroad · Microsoft Store</td></tr><tr><td><strong>Game on</strong></td><td>USD 14.99</td><td>Gumroad · Microsoft Store</td></tr></tbody></table></div>
+      <p>Each theme is sold on its own. Want both? Buy both — they sit happily together on the same machine.</p>
+    </section>
+
+    <section class="privacy-section" id="en-3">
+      <div class="sec-eyebrow">Section 3</div>
+      <h2>Installations and slots</h2>
+      <p><strong>On Gumroad — two installations per license.</strong> Your license key gives you two slots: two computers running the app at the same time.</p>
+      <p><strong>Changing computers?</strong> Open the tray menu on the old machine and choose <strong>Deactivate this installation</strong> — that frees the slot. Then install on the new one and activate it. Two minutes.</p>
+      <p><strong>Heads up.</strong> If you don't deactivate before the change (you reformat, you replace the disk, you swap the laptop without thinking), the slot stays occupied on a machine you no longer use, and the new install consumes the second slot. <strong>We do not restore slots.</strong> Not by support request, not for hardware failure, not for any reason. The two slots are the entire entitlement of your license.</p>
+      <p>So: deactivate before you change anything. It's the only mechanism — and it's in your hands.</p>
+      <p><strong>On Microsoft Store — different rules.</strong> Microsoft Store handles installations through your Microsoft account, with its own policy — effectively unlimited installations across your devices, within Microsoft's terms. The two-slot limit above does not apply to Microsoft Store purchases.</p>
+    </section>
+
+    <section class="privacy-section" id="en-4">
+      <div class="sec-eyebrow">Section 4</div>
+      <h2>One purchase, no updates</h2>
+      <div class="callout">The version you buy is the version you keep.</div>
+      <p>RelojSolarLunar is sold once and owned forever. Not a subscription. Not a service. A finished product, complete on the day you bought it.</p>
+      <p>Because of that, <strong>there are no automatic updates</strong>. The copy on your machine today is the copy on your machine tomorrow — running quietly, doing what it has always done.</p>
+      <p>If we release a new edition someday — a refreshed theme, a different motif, an entirely new product — it will be a new purchase. Customers from earlier editions are not migrated, not nudged, not interrupted. What you bought is what you have.</p>
+    </section>
+
+    <section class="privacy-section" id="en-5">
+      <div class="sec-eyebrow">Section 5</div>
+      <h2>Billing and refunds</h2>
+      <p>Your purchase platform handles the money. Gumroad or Microsoft Store — whichever you used — is the merchant on record. They charge you. They invoice you. They refund you. We just make the app.</p>
+      <p><strong>Refunds.</strong> 14 days from purchase. Request through the platform you bought from, following their standard refund flow. A granted refund automatically ends the license — it's the natural consequence of giving the money back, not a separate decision on our side.</p>
+      <p><strong>Invoices.</strong> Available in your Gumroad library or your Microsoft account. We do not issue separate invoices.</p>
+    </section>
+
+    <section class="privacy-section" id="en-6">
+      <div class="sec-eyebrow">Section 6</div>
+      <h2>System requirements</h2>
+      <div class="callout">Modest needs. Quiet behaviour.</div>
+      <p>The app is light by design — about 50 MB on disk, lives in the system tray, only reaches out to the internet when it has to.</p>
+      <div class="table-wrap"><table><thead><tr><th>Item</th><th>Requirement</th></tr></thead><tbody><tr><td>Windows</td><td>Windows 10 (1809) or later, 64-bit</td></tr><tr><td>macOS</td><td>macOS 11 Big Sur or later — Gumroad only</td></tr><tr><td>Disk space</td><td>~50 MB</td></tr><tr><td>Internet</td><td>For activation and periodic license check</td></tr><tr><td>Offline mode</td><td>Up to 8 days of normal operation; degraded display thereafter</td></tr></tbody></table></div>
+      <p><strong>VPNs:</strong> the app reads your location from your IP. While the VPN is on, the location shown will be the VPN's exit, not yours. Turn it off for a moment if you want the clock to find you.</p>
+    </section>
+
+    <section class="privacy-section" id="en-7">
+      <div class="sec-eyebrow">Section 7</div>
+      <h2>Offline behaviour</h2>
+      <p>The app is built to be offline-friendly. After activation it carries an 8-day astronomical window for your city and runs without needing the internet most of the time.</p>
+      <p>You may see these states in the city name on the clock:</p>
+      <ul><li><strong>Normal.</strong> Just the city. You're online or the cached data is current. Nothing to do.</li><li><strong><code>Offline / <City></code>.</strong> You went offline but the cached window still covers today. The clock is fully functional with the data it already has.</li><li><strong><code>First launch offline</code>.</strong> It's the very first time the app launches and there's no internet. The app cannot activate without a connection for that first time. Reconnect and try again.</li></ul>
+      <p>If the offline period stretches past the 8-day window, the clock falls into a <strong>degraded display</strong> — the city is hidden and the data shown is symbolic until the connection returns. The hands keep moving; you don't lose the time.</p>
+    </section>
+
+    <section class="privacy-section" id="en-8">
+      <div class="sec-eyebrow">Section 8</div>
+      <h2>If your license key is misused</h2>
+      <p>We protect the honest customer whose key got out — not the one using a key that isn't theirs.</p>
+      <p>If we detect a single license key being used on more devices than the slots allow, in a way that looks like cloning or sharing:</p>
+      <p>1. We notify you. 2. We revoke the affected installations. 3. <strong>We issue you a new license key — once.</strong> Your right to use the app is preserved; you reinstall with the new key on your devices.</p>
+      <p>If the same thing happens a second time on the same account, the license ends, and we do not issue a further key. The remediation is a one-time courtesy to a customer acting in good faith, not a recurring fix.</p>
+    </section>
+
+    <section class="privacy-section" id="en-9">
+      <div class="sec-eyebrow">Section 9</div>
+      <h2>If we ever stop</h2>
+      <p>RelojSolarLunar uses a small online check to validate your license. As long as we're operating, that check runs and you don't notice it.</p>
+      <p>If at some point we permanently shut the service down — we stop the business, we move on, life happens — <strong>your perpetual license stays usable</strong>. Before we close, we will publish a final update of the app that <strong>removes the license check entirely</strong>, so your installation keeps running on its own, indefinitely. You bought a perpetual license; we mean it.</p>
+    </section>
+
+    <section class="privacy-section" id="en-10">
+      <div class="sec-eyebrow">Section 10</div>
+      <h2>Privacy and terms</h2>
+      <p>Two short documents, both linked from the footer of every page.</p>
+      <ul><li><strong>Privacy Notice</strong> — <code>3doce56.com/privacy</code>. What we collect (very little: a hardware-derived hash for license validation, country, OS, version) and what we don't (no personal content from your computer, no tracking).</li><li><strong>Terms</strong> — <code>3doce56.com/terms</code>. The license agreement (EULA): what you can do with the app, the two-slot rule, refunds via the platform, and so on.</li></ul>
+      <p>If you have a question that goes beyond what's here, write to us at <strong>legal@3doce56.com</strong> for legal matters or <strong>support@3doce56.com</strong> for everything else.</p>
+    </section>
+
+    <section class="privacy-section" id="en-11">
+      <div class="sec-eyebrow">Section 11</div>
+      <h2>Contact us</h2>
+      <p>Past these answers? Write to us. To help us help you faster, tell us the email you used at purchase, your transaction ID if you have it, and a brief description of what's happening.</p>
+      <p><strong>Customer support</strong> — <strong>support@3doce56.com</strong> Reply within 1–3 business days.</p>
+      <p><strong>Language of support.</strong> We handle support, sales enquiries, and general correspondence in <strong>English and Spanish only</strong>, through: <strong>legal@3doce56.com</strong> (legal matters), <strong>support@3doce56.com</strong> (technical and product support), and <strong>carlosb@3doce56.com</strong> (general enquiries). Messages received in other languages cannot be processed; we kindly ask you to resubmit your enquiry in English or Spanish. This limitation does <strong>not</strong> apply to the exercise of your rights over your personal data (ARCO rights and equivalents): requests concerning your personal data are handled in any language, in accordance with our Privacy Notice.</p>
+      <p>---</p>
+    </section>
+  </div>
+
+  <!-- ════ ESPAÑOL ════ -->
+  <div data-lang="es">
+    <nav class="toc" aria-label="Índice">
+      <div class="toc-label">Índice</div>
+      <ol>
+        <li><a href="#es-1">De un vistazo</a></li>
+        <li><a href="#es-2">Dos motivos, una app</a></li>
+        <li><a href="#es-3">Instalaciones y slots</a></li>
+        <li><a href="#es-4">Una compra, sin actualizaciones</a></li>
+        <li><a href="#es-5">Facturación y reembolsos</a></li>
+        <li><a href="#es-6">Requisitos del sistema</a></li>
+        <li><a href="#es-7">Comportamiento offline</a></li>
+        <li><a href="#es-8">Si se hace mal uso de tu clave</a></li>
+        <li><a href="#es-9">Si algún día dejamos de operar</a></li>
+        <li><a href="#es-10">Privacidad y términos</a></li>
+        <li><a href="#es-11">Contáctanos</a></li>
+      </ol>
+    </nav>
+
+    <section class="privacy-section" id="es-1">
+      <div class="sec-eyebrow">Sección 1</div>
+      <h2>De un vistazo</h2>
+      <div class="callout">La mayoría de las cosas se gestionan solas.</div>
+      <p>Compra. Activa. Ejecuta. El reloj marca la hora, se valida en segundo plano y no pide nada más. Esta página es para lo demás — esos pocos momentos en los que quieras saber cómo funciona algo, o hablar con alguien.</p>
+      <p><strong>¿No te llega el correo de activación?</strong> Revisa spam y promociones, y comprueba la dirección que usaste al comprar. Los correos de activación los envía tu plataforma de compra — Gumroad o Microsoft Store — en el momento del pago.</p>
+    </section>
+
+    <section class="privacy-section" id="es-2">
+      <div class="sec-eyebrow">Sección 2</div>
+      <h2>Dos motivos, una app</h2>
+      <p>Una app. Dos caras. <strong>Pergamino</strong> es cálido y clásico — tonos pergamino, tipografía serif, aire de manuscrito antiguo. <strong>Game on</strong> es vivo y rotundo — verde césped, acentos dorados, la energía del deporte rey. Misma precisión. Mismos datos. Distinta alma.</p>
+      <div class="table-wrap"><table><thead><tr><th>Motivo</th><th>Precio</th><th>Disponible en</th></tr></thead><tbody><tr><td><strong>Pergamino</strong></td><td>USD 14,99</td><td>Gumroad · Microsoft Store</td></tr><tr><td><strong>Game on</strong></td><td>USD 14,99</td><td>Gumroad · Microsoft Store</td></tr></tbody></table></div>
+      <p>Cada motivo se vende por separado. ¿Quieres los dos? Cómpralos los dos — conviven sin problema en la misma máquina.</p>
+    </section>
+
+    <section class="privacy-section" id="es-3">
+      <div class="sec-eyebrow">Sección 3</div>
+      <h2>Instalaciones y slots</h2>
+      <p><strong>En Gumroad — dos instalaciones por licencia.</strong> Tu clave te da dos slots: dos ordenadores ejecutando la app al mismo tiempo.</p>
+      <p><strong>¿Cambias de ordenador?</strong> En el menú de bandeja del antiguo, pulsa <strong>Deactivate this installation</strong> — eso libera el slot. Después instalas en el nuevo y lo activas. Dos minutos.</p>
+      <p><strong>Atención.</strong> Si no desactivas antes del cambio (formateas, cambias el disco, sustituyes el portátil sin pensarlo), el slot se queda ocupado en una máquina que ya no usas, y la nueva instalación consume el segundo slot. <strong>No reponemos slots.</strong> Ni por petición a soporte, ni por avería de hardware, ni por ningún motivo. Los dos slots son toda la cobertura de tu licencia.</p>
+      <p>Resumen: desactiva antes de cambiar nada. Es el único mecanismo — y está en tus manos.</p>
+      <p><strong>En Microsoft Store — reglas distintas.</strong> Microsoft Store gestiona las instalaciones a través de tu cuenta Microsoft, con su propia política — instalaciones prácticamente ilimitadas entre tus dispositivos, dentro de los términos de Microsoft. El límite de dos slots no aplica a compras en Microsoft Store.</p>
+    </section>
+
+    <section class="privacy-section" id="es-4">
+      <div class="sec-eyebrow">Sección 4</div>
+      <h2>Una compra, sin actualizaciones</h2>
+      <div class="callout">La versión que compras es la versión que conservas.</div>
+      <p>RelojSolarLunar se vende una vez y se queda contigo. No es suscripción. No es servicio. Es un producto terminado, completo el día que lo compras.</p>
+      <p>Por eso, <strong>no hay actualizaciones automáticas</strong>. La copia que tienes hoy en tu máquina es la copia que tendrás mañana — funcionando en silencio, haciendo lo que siempre ha hecho.</p>
+      <p>Si algún día sacamos una edición nueva — un motivo distinto, otro tema, un producto entero nuevo — será una compra nueva. A los clientes de ediciones anteriores no se les migra, ni se les empuja, ni se les interrumpe. Lo que compraste es lo que tienes.</p>
+    </section>
+
+    <section class="privacy-section" id="es-5">
+      <div class="sec-eyebrow">Sección 5</div>
+      <h2>Facturación y reembolsos</h2>
+      <p>La plataforma de compra gestiona el dinero. Gumroad o Microsoft Store — la que hayas usado — es la vendedora oficial. Ella te cobra. Ella te factura. Ella te reembolsa. Nosotros solo hacemos la app.</p>
+      <p><strong>Reembolsos.</strong> 14 días desde la compra. Solicítalo a través de la plataforma donde compraste, siguiendo su procedimiento estándar. Un reembolso concedido termina la licencia automáticamente — es la consecuencia natural de devolver el dinero, no una decisión aparte por nuestra parte.</p>
+      <p><strong>Facturas.</strong> Disponibles en tu biblioteca de Gumroad o en tu cuenta de Microsoft. Nosotros no emitimos facturas separadas.</p>
+    </section>
+
+    <section class="privacy-section" id="es-6">
+      <div class="sec-eyebrow">Sección 6</div>
+      <h2>Requisitos del sistema</h2>
+      <div class="callout">Necesidades modestas. Comportamiento discreto.</div>
+      <p>La app es ligera por diseño — unos 50 MB en disco, vive en la bandeja del sistema, solo se conecta a internet cuando lo necesita.</p>
+      <div class="table-wrap"><table><thead><tr><th>Elemento</th><th>Requisito</th></tr></thead><tbody><tr><td>Windows</td><td>Windows 10 (1809) o posterior, 64 bits</td></tr><tr><td>macOS</td><td>macOS 11 Big Sur o posterior — solo Gumroad</td></tr><tr><td>Espacio en disco</td><td>~50 MB</td></tr><tr><td>Internet</td><td>Para activación y comprobación periódica de licencia</td></tr><tr><td>Modo offline</td><td>Hasta 8 días de funcionamiento normal; visualización degradada después</td></tr></tbody></table></div>
+      <p><strong>VPN:</strong> la app lee tu ubicación desde la IP. Mientras la VPN esté activa, la ubicación que verás será la salida de la VPN, no la tuya. Desactívala un momento si quieres que el reloj te encuentre.</p>
+    </section>
+
+    <section class="privacy-section" id="es-7">
+      <div class="sec-eyebrow">Sección 7</div>
+      <h2>Comportamiento offline</h2>
+      <p>La app está pensada para funcionar bien sin conexión. Tras la activación lleva una ventana astronómica de 8 días para tu ciudad y se mueve sin necesidad de internet la mayor parte del tiempo.</p>
+      <p>Estos son los estados que puedes ver en el nombre de la ciudad en el reloj:</p>
+      <ul><li><strong>Normal.</strong> Solo la ciudad. Estás conectado o los datos en caché siguen vigentes. Nada que hacer.</li><li><strong><code>Offline / <Ciudad></code>.</strong> Has perdido la conexión pero la ventana en caché todavía cubre hoy. El reloj funciona perfectamente con los datos que ya tiene.</li><li><strong><code>First launch offline</code>.</strong> Es la primera vez que arranca la app y no hay internet. La app no puede activarse sin conexión esa primera vez. Vuelve a conectarte e inténtalo de nuevo.</li></ul>
+      <p>Si el periodo sin conexión se alarga más allá de los 8 días, el reloj entra en <strong>modo degradado</strong> — la ciudad se oculta y los datos que muestra son simbólicos hasta que vuelva la conexión. Las manecillas siguen moviéndose; no pierdes la hora.</p>
+    </section>
+
+    <section class="privacy-section" id="es-8">
+      <div class="sec-eyebrow">Sección 8</div>
+      <h2>Si se hace mal uso de tu clave</h2>
+      <p>Protegemos al cliente honesto cuya clave se ha filtrado — no a quien usa una clave que no es suya.</p>
+      <p>Si detectamos que una sola clave de licencia se está usando en más dispositivos de los que permiten los slots, de una forma que parece clonación o reparto:</p>
+      <p>1. Te avisamos. 2. Revocamos las instalaciones afectadas. 3. <strong>Te emitimos una clave nueva — una sola vez.</strong> Tu derecho a usar la app se conserva; reinstalas con la clave nueva en tus dispositivos.</p>
+      <p>Si vuelve a ocurrir lo mismo en la misma cuenta una segunda vez, la licencia termina y no emitimos otra clave. La reposición es una cortesía única para un cliente que ha actuado de buena fe, no un arreglo recurrente.</p>
+    </section>
+
+    <section class="privacy-section" id="es-9">
+      <div class="sec-eyebrow">Sección 9</div>
+      <h2>Si algún día dejamos de operar</h2>
+      <p>RelojSolarLunar usa una pequeña comprobación online para validar tu licencia. Mientras el negocio funcione, esa comprobación corre y tú no la notas.</p>
+      <p>Si en algún momento cerramos el servicio para siempre — paramos el negocio, cambiamos de rumbo, la vida pasa — <strong>tu licencia perpetua sigue siendo usable</strong>. Antes de cerrar, publicaremos una actualización final de la app que <strong>retira la comprobación de licencia por completo</strong>, para que tu instalación siga funcionando por su cuenta, indefinidamente. Compraste una licencia perpetua; lo decimos en serio.</p>
+    </section>
+
+    <section class="privacy-section" id="es-10">
+      <div class="sec-eyebrow">Sección 10</div>
+      <h2>Privacidad y términos</h2>
+      <p>Dos documentos cortos, ambos enlazados desde el pie de cada página.</p>
+      <ul><li><strong>Aviso de Privacidad</strong> — <code>3doce56.com/privacy</code>. Qué recogemos (muy poco: un hash derivado del hardware para validar la licencia, país, sistema operativo, versión) y qué no recogemos (ningún contenido personal de tu equipo, sin tracking).</li><li><strong>Términos</strong> — <code>3doce56.com/terms</code>. El contrato de licencia (EULA): qué puedes hacer con la app, la regla de los dos slots, los reembolsos vía plataforma, y demás.</li></ul>
+      <p>Si tienes una duda que va más allá de lo que está aquí, escríbenos a <strong>legal@3doce56.com</strong> para temas legales o <strong>support@3doce56.com</strong> para todo lo demás.</p>
+    </section>
+
+    <section class="privacy-section" id="es-11">
+      <div class="sec-eyebrow">Sección 11</div>
+      <h2>Contáctanos</h2>
+      <p>¿Más allá de estas respuestas? Escríbenos. Para ayudarte más rápido, dinos el correo que usaste al comprar, tu identificador de transacción si lo tienes, y una breve descripción de lo que ocurre.</p>
+      <p><strong>Soporte al cliente</strong> — <strong>support@3doce56.com</strong> Respondemos en 1–3 días hábiles.</p>
+      <p><strong>Idioma de atención.</strong> Atendemos consultas de soporte, dudas comerciales y comunicaciones generales en <strong>inglés y español únicamente</strong>, a través de: <strong>legal@3doce56.com</strong> (asuntos legales), <strong>support@3doce56.com</strong> (soporte técnico y del producto) y <strong>carlosb@3doce56.com</strong> (consultas generales). Las comunicaciones recibidas en otros idiomas no podrán ser atendidas; le rogamos reformular su consulta en inglés o español. Esta limitación <strong>no</strong> aplica al ejercicio de derechos del titular sobre sus datos personales (derechos ARCO y equivalentes): las solicitudes relativas a sus datos personales serán atendidas conforme a nuestro Aviso de Privacidad, independientemente del idioma.</p>
+    </section>
+  </div>
+
+</div><!-- /page-content -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-identity">
+      <div class="footer-brand">
+        <a class="brand3" href="../" aria-label="3doce56 — inicio">3<span class="doce">doce</span>56</a>
+      </div>
+      <div class="footer-copy">© 2026 Carlos Benito · 3doce56.com</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="../">Home</a></li>
+      <li><a href="../privacy/">Privacy notice</a></li>
+      <li><a href="../terms/">Terms</a></li>
+      <li><a href="../support/">Support</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.body.className='lang-'+lang;
+    document.getElementById('btn-en').classList.toggle('active',lang==='en');
+    document.getElementById('btn-es').classList.toggle('active',lang==='es');
+    document.documentElement.lang=lang;
+    window.scrollTo({top:0,behavior:'smooth'});
+    try{localStorage.setItem('rsl_lang',lang)}catch(e){}
+  }
+  (function(){
+    try{const s=localStorage.getItem('rsl_lang');if(s){setLang(s);return}}catch(e){}
+    setLang((navigator.language||'en').toLowerCase().startsWith('es')?'es':'en');
+  })();
+</script>
+
+</body>
+</html>
