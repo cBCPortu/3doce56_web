@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms — RelojSolarLunar · 3doce56</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <meta name="description" content="End User License Agreement (EULA) for RelojSolarLunar by Carlos Benito / 3doce56.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --teal:#0D5C6E;
+      --teal-dark:#0A3D4A;
+      --teal-deep:#071E25;
+      --gold:#C9A010;
+      --gold-light:#E8C040;
+      --sky:#88C3E6;
+      --cream:#FAFAF7;
+      --text:#0D1A1E;
+      --muted:#5A7A84;
+      --rule:rgba(13,92,110,0.10);
+      --serif:'Cormorant Garamond',Georgia,serif;
+      --sans:'DM Sans',sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);color:var(--text);background:var(--cream);overflow-x:hidden}
+
+    /* ── NAV (fixed) ── */
+    nav.site-nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      padding:0 6%;
+      background:rgba(7,30,37,0.96);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(13,92,110,0.25);
+    }
+    .nav-inner{
+      max-width:1100px;margin:0 auto;
+      height:64px;display:flex;align-items:center;justify-content:space-between;
+    }
+    .nav-logo{
+      font-family:var(--serif);font-size:19px;font-weight:600;font-style:italic;
+      color:rgba(255,255,255,0.9);text-decoration:none;letter-spacing:0.5px;
+    }
+    .nav-logo span{color:var(--gold-light)}
+    .nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+    .nav-links a{
+      font-size:11px;letter-spacing:2px;text-transform:uppercase;
+      color:rgba(255,255,255,0.45);text-decoration:none;font-weight:400;transition:color .2s;
+    }
+    .nav-links a:hover{color:rgba(255,255,255,0.85)}
+    .nav-links a.active{color:var(--gold-light);font-weight:500}
+    .lang-toggle{
+      display:flex;border:1px solid rgba(255,255,255,0.15);
+      border-radius:2px;overflow:hidden;
+    }
+    .lang-toggle button{
+      background:transparent;border:none;
+      font-family:var(--sans);font-size:10px;font-weight:500;
+      letter-spacing:1.5px;text-transform:uppercase;
+      padding:4px 10px;cursor:pointer;
+      color:rgba(255,255,255,0.4);transition:background .2s,color .2s;
+    }
+    .lang-toggle button.active{background:var(--teal);color:white}
+    .lang-toggle button:not(.active):hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.7)}
+
+    /* ── HERO ── */
+    .page-hero{
+      background:var(--teal-deep);
+      padding:96px 6% 60px;   /* 96px = 64px nav + 32px breathing room */
+      position:relative;
+      overflow:hidden;
+    }
+    .page-hero::before{
+      content:'';position:absolute;
+      top:-120px;right:-120px;
+      width:480px;height:480px;border-radius:50%;
+      background:radial-gradient(circle,rgba(201,160,16,0.06) 0%,transparent 65%);
+      pointer-events:none;
+    }
+    .hero-inner{max-width:800px;margin:0 auto}
+
+    /* Product identity line */
+    .product-id{
+      display:flex;align-items:center;gap:16px;
+      margin-bottom:32px;
+    }
+    .product-name{
+      font-family:var(--serif);
+      font-size:clamp(22px,3vw,34px);
+      font-weight:600;font-style:italic;
+      color:rgba(255,255,255,0.90);
+      letter-spacing:0.3px;line-height:1;
+    }
+    .product-name span{color:var(--gold-light)}
+    .product-divider{
+      width:1px;height:28px;
+      background:rgba(255,255,255,0.15);
+      flex-shrink:0;
+    }
+    .page-label{
+      font-size:10px;letter-spacing:4px;text-transform:uppercase;
+      color:rgba(201,160,16,0.7);font-weight:500;
+    }
+
+    /* Hero title */
+    .hero-title{
+      font-family:var(--serif);
+      font-size:clamp(36px,5vw,64px);
+      font-weight:300;line-height:1.05;
+      color:white;margin-bottom:20px;
+      letter-spacing:-0.3px;
+    }
+    .hero-title em{font-style:italic;color:var(--sky);font-weight:400}
+
+    /* Hero meta */
+    .hero-meta{
+      font-size:11px;letter-spacing:0.5px;
+      color:rgba(255,255,255,0.28);
+    }
+    .hero-meta strong{color:rgba(255,255,255,0.45)}
+    .hero-meta a{
+      color:rgba(136,195,230,0.6);
+      text-decoration:none;
+      border-bottom:1px solid rgba(136,195,230,0.2);
+      transition:color .2s,border-color .2s;
+    }
+    .hero-meta a:hover{color:var(--sky);border-bottom-color:var(--sky)}
+
+    /* Hero bottom bar */
+    .hero-bar{
+      height:2px;
+      background:linear-gradient(90deg,var(--teal) 0%,var(--gold) 100%);
+    }
+
+    /* ── MAIN CONTENT ── */
+    .page-content{
+      max-width:800px;margin:0 auto;
+      padding:56px 6% 80px;
+    }
+
+    /* TOC */
+    .toc{
+      border:1px solid var(--rule);border-radius:2px;
+      padding:28px 32px;margin-bottom:56px;background:white;
+    }
+    .toc-label{
+      font-size:9px;letter-spacing:4px;text-transform:uppercase;
+      color:var(--gold);font-weight:500;margin-bottom:16px;
+    }
+    .toc ol{margin:0;padding-left:1.2rem;columns:2;column-gap:32px}
+    .toc li{margin-bottom:6px;break-inside:avoid;font-size:13px;color:var(--muted)}
+    .toc a{color:var(--teal);text-decoration:none}
+    .toc a:hover{color:var(--teal-dark);text-decoration:underline;text-underline-offset:3px}
+
+    /* Sections */
+    .privacy-section{
+      margin-bottom:48px;padding-bottom:48px;
+      border-bottom:1px solid var(--rule);
+    }
+    .privacy-section:last-child{border-bottom:none;margin-bottom:0}
+    .sec-eyebrow{
+      font-size:9px;letter-spacing:4px;text-transform:uppercase;
+      color:var(--gold);font-weight:500;
+      display:flex;align-items:center;gap:8px;margin-bottom:10px;
+    }
+    .sec-eyebrow::before{content:'';width:16px;height:1px;background:var(--gold);opacity:0.6}
+    h2{
+      font-family:var(--serif);font-size:clamp(20px,2.5vw,26px);
+      font-weight:400;color:var(--teal-dark);margin-bottom:20px;line-height:1.2;
+    }
+    h3{
+      font-family:var(--serif);font-size:17px;font-weight:600;
+      color:var(--teal);margin:28px 0 12px;
+    }
+    p{font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:16px;font-weight:300}
+    p strong{color:var(--text);font-weight:500}
+    p a,li a{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+    p a:hover,li a:hover{color:var(--teal-dark)}
+    ul,ol{
+      padding-left:1.3rem;margin-bottom:16px;
+      font-size:14px;color:var(--muted);line-height:1.85;font-weight:300;
+    }
+    li{margin-bottom:6px}
+
+    /* Table */
+    .table-wrap{overflow-x:auto;margin:16px 0 20px;border:1px solid var(--rule);border-radius:2px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    thead tr{background:white}
+    th{
+      font-size:9px;letter-spacing:3px;text-transform:uppercase;
+      color:var(--gold);font-weight:500;
+      padding:12px 16px;text-align:left;border-bottom:1px solid var(--rule);
+    }
+    td{
+      padding:12px 16px;border-bottom:1px solid var(--rule);
+      color:var(--muted);vertical-align:top;line-height:1.6;font-weight:300;
+    }
+    tr:last-child td{border-bottom:none}
+    tr:nth-child(even) td{background:rgba(13,92,110,0.015)}
+
+    /* Callout */
+    .callout{
+      background:white;border-left:2px solid var(--gold);
+      border-radius:0 2px 2px 0;padding:14px 20px;margin:16px 0;
+      font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;
+    }
+    .callout strong{color:var(--text);font-weight:500}
+
+    /* ── FOOTER ── */
+    footer{background:var(--teal-dark);padding:48px 6%}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+    .footer-identity{display:inline-block}
+    .footer-brand{font-family:var(--serif);font-size:20px;font-style:italic;font-weight:600;color:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:flex-start;gap:6px;margin-bottom:8px}
+    .brand3{font-family:'Space Grotesk',var(--sans);font-style:normal;font-weight:700;font-size:26px;letter-spacing:-0.015em;line-height:1;text-decoration:none;color:var(--cream)}
+    .brand3 .doce{font-weight:500;color:#d8a425}
+    .footer-logo{height:48px;width:auto;display:block}
+    .footer-links{display:flex;gap:32px;list-style:none}
+    .footer-links a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.62);text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:rgba(255,255,255,0.95)}
+    .footer-copy{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:1px;white-space:nowrap}
+
+    /* ── LANG VISIBILITY ── */
+    [data-lang]{display:none}
+    body.lang-en [data-lang="en"]{display:block}
+    body.lang-es [data-lang="es"]{display:block}
+
+    @media(max-width:640px){
+      .toc ol{columns:1}
+      .product-divider{display:none}
+      .nav-links li:not(:last-child){display:none}
+    }
+  </style>
+</head>
+<body class="lang-en">
+
+<!-- ── NAV ── -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../">Reloj<span>Solar</span>Lunar</a>
+    <ul class="nav-links">
+      <li><a href="../">App</a></li>
+      <li><a href="../support/">Support</a></li>
+      <li><a href="../privacy/">Privacy</a></li>
+      <li><a href="../terms/" class="active">Terms</a></li>
+      <li>
+        <div class="lang-toggle">
+          <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+          <button id="btn-es" onclick="setLang('es')">ES</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="product-id">
+      <div class="product-name">Reloj<span>Solar</span>Lunar</div>
+      <div class="product-divider"></div>
+      <div data-lang="en"><span class="page-label">End User License Agreement</span></div>
+      <div data-lang="es"><span class="page-label">Contrato de Licencia de Usuario Final</span></div>
+    </div>
+
+    <div data-lang="en">
+      <h1 class="hero-title">The terms,<br><em>plainly set out.</em></h1>
+      <div class="hero-meta">
+        Version 1.0 &nbsp;·&nbsp; Effective <strong>[DATE]</strong>
+        &nbsp;·&nbsp; <a href="#" onclick="setLang('es');return false;">Ver en español</a>
+      </div>
+    </div>
+
+    <div data-lang="es">
+      <h1 class="hero-title">Los términos,<br><em>expuestos con claridad.</em></h1>
+      <div class="hero-meta">
+        Versión 1.0 &nbsp;·&nbsp; Vigente desde <strong>[FECHA]</strong>
+        &nbsp;·&nbsp; <a href="#" onclick="setLang('en');return false;">Read in English</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="hero-bar"></div>
+
+<!-- ── CONTENT ── -->
+<div class="page-content">
+
+  <!-- ════ ENGLISH ════ -->
+  <div data-lang="en">
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-label">Contents</div>
+      <ol>
+        <li><a href="#en-1">Subject matter</a></li>
+        <li><a href="#en-2">Definitions</a></li>
+        <li><a href="#en-3">Grant of license</a></li>
+        <li><a href="#en-4">Restrictions</a></li>
+        <li><a href="#en-5">Intellectual property</a></li>
+        <li><a href="#en-6">Purchase and refunds — Merchant of Record</a></li>
+        <li><a href="#en-7">No obligation of updates or support; continuity of perpetual license</a></li>
+        <li><a href="#en-8">Term and termination</a></li>
+        <li><a href="#en-9">Effects of termination</a></li>
+        <li><a href="#en-10">Privacy and license validation</a></li>
+        <li><a href="#en-11">Warranty — disclaimer and statutory floor</a></li>
+        <li><a href="#en-12">Limitation of liability</a></li>
+        <li><a href="#en-13">Non-waivable consumer rights (savings clause)</a></li>
+        <li><a href="#en-14">Governing law, jurisdiction, and consumer forum</a></li>
+        <li><a href="#en-15">Modifications and assignment by the Licensor</a></li>
+        <li><a href="#en-16">Severability</a></li>
+        <li><a href="#en-17">Language</a></li>
+        <li><a href="#en-18">Entire agreement</a></li>
+        <li><a href="#en-19">Contact</a></li>
+      </ol>
+    </nav>
+
+    <section class="privacy-section" id="en-1">
+      <div class="sec-eyebrow">Section 1</div>
+      <h2>Subject matter</h2>
+      <p>This Agreement governs <strong>the license to use the Software</strong> granted by the Licensor to the User. It does <strong>not</strong> govern the purchase of the Software. The purchase is a separate transaction executed by the distribution platform acting as Merchant of Record, on its own terms (see Section 6).</p>
+    </section>
+
+    <section class="privacy-section" id="en-2">
+      <div class="sec-eyebrow">Section 2</div>
+      <h2>Definitions</h2>
+      <ul><li><strong>Software</strong> — the RelojSolarLunar desktop application and all associated files, data windows, graphic resources, and documentation, in any visual edition.</li><li><strong>License Key</strong> — the activation code delivered to the User following purchase through the Gumroad channel, in the format <code>RSL-PERG-XXXX-XXXX-XXXX</code> for the Pergamino edition and <code>RSL-GAME-XXXX-XXXX-XXXX</code> for the Game on edition (the four-letter segment denotes the product edition).</li><li><strong>Active Installation</strong> — an installation of the Software activated against a valid License Key on a given device.</li><li><strong>Installation Slot</strong> — one of the limited positions made available by a License Key for Active Installations under the Gumroad channel (see Section 3).</li><li><strong>Platform</strong> — Gumroad or Microsoft Store, as applicable, acting as Merchant of Record for the sale.</li><li><strong>Installation Identifier</strong> — a technical hardware-derived identifier used solely to validate the license (see Section 10).</li><li><strong>License Validation Service</strong> — the Licensor's backend service that validates License Keys and Installation Identifiers in operation.</li></ul>
+    </section>
+
+    <section class="privacy-section" id="en-3">
+      <div class="sec-eyebrow">Section 3</div>
+      <h2>Grant of license</h2>
+      <p>Subject to your compliance with this Agreement, the Licensor grants you a <strong>personal, non-exclusive, non-transferable, perpetual</strong> license to install and use the Software for your own use. This is a license of use only; <strong>no ownership of the Software is transferred</strong>.</p>
+      <h3>3.1 Number of Installation Slots</h3>
+      <p><strong>Gumroad channel.</strong> Each License Key entitles you to up to <strong>two (2) Installation Slots</strong>, meaning up to two simultaneous Active Installations. The two Slots are the <strong>entire installation entitlement</strong> granted by the License Key.</p>
+      <p><strong>Microsoft Store channel.</strong> The number of installations and device association are governed by <strong>Microsoft's native policy</strong>, tied to your Microsoft account, and are <strong>effectively unlimited within the limits Microsoft sets</strong>. The two-Slot limit set out above for the Gumroad channel <strong>does not apply</strong> to purchases made through Microsoft Store.</p>
+      <h3>3.2 Self-service slot management (Gumroad channel)</h3>
+      <p>The Software includes a function — <strong>"Deactivate this installation"</strong> — through which <strong>you</strong> can release an Installation Slot occupied by a given device, so that you may move your license to another device yourself. This function is the <strong>sole mechanism</strong> available to you to free a Slot.</p>
+      <h3>3.3 No restitution of Slots</h3>
+      <p>Slots are consumed by Active Installations as they occur. In particular:</p>
+      <p>(a) any <strong>hardware change</strong> that the Software's validation mechanism perceives as a new device consumes a Slot. It is <strong>your responsibility</strong> to use the "Deactivate this installation" function on the old device <strong>before</strong> the hardware change so as not to lose the Slot;</p>
+      <p>(b) if a Slot is lost because the "Deactivate this installation" function was not used in time, the Licensor <strong>does not restore Slots</strong>, does not grant manual exceptions, and provides no replacement installations beyond the entitlement set out in Section 3.1;</p>
+      <p>(c) Slot policy is applied automatically and strictly by the License Validation Service. The Licensor's customer-support channels are <strong>not authorized</strong> to override Slot enforcement.</p>
+      <p>This Section does not exclude or limit the non-waivable rights the User holds as a consumer under applicable law (see Section 13).</p>
+    </section>
+
+    <section class="privacy-section" id="en-4">
+      <div class="sec-eyebrow">Section 4</div>
+      <h2>Restrictions</h2>
+      <p>You may not, and may not permit any third party to:</p>
+      <p>(a) reverse engineer, decompile, or disassemble the Software, except to the extent such restriction is expressly prohibited by applicable law; (b) copy, redistribute, publish, rent, lease, lend, resell, or otherwise make the Software available to third parties; (c) sublicense, assign, or transfer the License Key or your rights under this Agreement, except as required by law; (d) circumvent, disable, or tamper with the license-validation, slot, or activation mechanisms; (e) remove or alter any proprietary notices, trademarks, or identifiers.</p>
+    </section>
+
+    <section class="privacy-section" id="en-5">
+      <div class="sec-eyebrow">Section 5</div>
+      <h2>Intellectual property</h2>
+      <h3>5.1 Ownership</h3>
+      <p>The Software, including its source and object code, the trademarks <strong>3doce56</strong> and <strong>RelojSolarLunar</strong>, and all graphic and audiovisual resources, are and remain the exclusive property of the Licensor and are protected by applicable intellectual property law. This Agreement grants only the limited license expressly set out in Section 3 and reserves all other rights.</p>
+      <h3>5.2 Third-party components</h3>
+      <p>The Software incorporates the following third-party components, used under their respective licenses:</p>
+      <ul><li>Geographic data: GeoNames database (https://www.geonames.org), licensed under Creative Commons Attribution 4.0 (https://creativecommons.org/licenses/by/4.0/).</li><li>Astronomical calculations: PyEphem library (https://rhodesmill.org/pyephem/), licensed under LGPL.</li></ul>
+      <p>All other components are proprietary to the Licensor.</p>
+    </section>
+
+    <section class="privacy-section" id="en-6">
+      <div class="sec-eyebrow">Section 6</div>
+      <h2>Purchase and refunds — Merchant of Record</h2>
+      <p>The Software is sold exclusively through the Platform (Gumroad or Microsoft Store), which acts as <strong>Merchant of Record</strong>. Accordingly:</p>
+      <p>(a) the sale, payment processing, applicable consumer taxes, and <strong>refund policy</strong> are governed by the <strong>Platform's own terms</strong>, not by this Agreement; (b) the Licensor is <strong>not a party to the sale</strong> and does <strong>not</strong> administer or assume any direct refund obligation; any refund request must be directed to the Platform; (c) the Platform's refund policy applies (reference window: 14 days, as currently applied by the Platforms; subject to the Platform's terms).</p>
+      <p>Nothing in this Section excludes or limits the non-waivable rights the User holds as a consumer under applicable law (see Sections 11, 12, and 13).</p>
+    </section>
+
+    <section class="privacy-section" id="en-7">
+      <div class="sec-eyebrow">Section 7</div>
+      <h2>No obligation of updates or support; continuity of perpetual license</h2>
+      <h3>7.1 No obligation of updates or support</h3>
+      <p>The Software is a <strong>finished product sold for a one-time payment</strong>. The Licensor is under <strong>no obligation</strong> to provide updates, upgrades, maintenance, or continued support. Any future major version is a <strong>new, separate product requiring a new purchase</strong>; purchasers of the current version acquire no right to it.</p>
+      <h3>7.2 Continuity of the perpetual license if the validation service is discontinued</h3>
+      <p>The license granted under Section 3 is <strong>perpetual</strong>. If the Licensor permanently discontinues the <strong>License Validation Service</strong> —in particular, if the Licensor ceases the activity in such a way that the validation backend is no longer maintained— the Licensor will, <strong>at no cost to you and as a condition of the perpetuity of your license</strong>, make available a final update of the Software that <strong>removes the dependency on the License Validation Service</strong>, so that previously activated installations remain usable.</p>
+      <p>This commitment does not require the Licensor to provide any further updates, features, or support after such final update.</p>
+    </section>
+
+    <section class="privacy-section" id="en-8">
+      <div class="sec-eyebrow">Section 8</div>
+      <h2>Term and termination</h2>
+      <p>This license is perpetual but will <strong>terminate automatically</strong> upon the occurrence of any of the following <strong>objective causes</strong>:</p>
+      <p>(a) a refund of the purchase, granted by the Platform; (b) a payment reversal or chargeback affecting the purchase; (c) detection of <strong>cloning or fraudulent use</strong> of a single License Key across multiple devices in breach of Section 3, with the consequences set out in Section 8.1; (d) your exercise of a right to erasure of personal data that makes license validation impossible, where such erasure is requested by you (see the Privacy Notice); (e) a material breach by you of this Agreement.</p>
+      <p>Termination under (a) or (b) reflects the failure of the consideration on which the license was granted. The Licensor does not reserve, and shall not exercise, any discretionary or at-will power to terminate outside the causes listed above.</p>
+      <h3>8.1 Cloning — one-time remediation</h3>
+      <p>The Licensor distinguishes between the License Key (the credential issued to the User) and the underlying entitlement (the right to use the Software). To protect the User who acted in good faith against fraudulent reuse of their credential:</p>
+      <p>(a) <strong>On the first detection</strong> of cloning or fraudulent use of a License Key across multiple devices, the Licensor will notify the User, revoke the affected Installation Identifier(s), and issue <strong>a new License Key as a one-time remediation</strong>. The User's underlying entitlement is preserved and the User may reinstall the Software using the new License Key.</p>
+      <p>(b) <strong>On any subsequent detection</strong> of cloning or fraudulent use affecting the same User, the license <strong>terminates definitively without further remediation</strong>, and no new License Key will be issued.</p>
+      <p>The remediation under paragraph (a) is granted once per User and is not a recurring right.</p>
+    </section>
+
+    <section class="privacy-section" id="en-9">
+      <div class="sec-eyebrow">Section 9</div>
+      <h2>Effects of termination</h2>
+      <p>Upon termination, your right to use the Software ceases and the License Key may be invalidated. You must cease use and uninstall the Software. Sections 4, 5, 7.2, 8.1, 11, 12, 13, 14, 16, 17, and 18 survive termination.</p>
+    </section>
+
+    <section class="privacy-section" id="en-10">
+      <div class="sec-eyebrow">Section 10</div>
+      <h2>Privacy and license validation</h2>
+      <p>To validate the license, the Software periodically transmits to the License Validation Service a <strong>technical Installation Identifier</strong> (a hardware-derived hash, not direct personal data), together with country, operating system, and version.</p>
+      <p>The processing of personal data is governed exclusively by the Licensor's <strong>Privacy Notice</strong>, available at <strong>3doce56.com/privacy</strong>, drafted under Mexican data protection law and the EU GDPR. This Agreement does not replace the Privacy Notice and incorporates it by reference.</p>
+    </section>
+
+    <section class="privacy-section" id="en-11">
+      <div class="sec-eyebrow">Section 11</div>
+      <h2>Warranty — disclaimer and statutory floor</h2>
+      <p>To the <strong>maximum extent permitted by applicable law</strong>, the Software is provided "<strong>AS IS</strong>" and "<strong>AS AVAILABLE</strong>", without warranties of any kind, whether express, implied, or statutory beyond what the law requires, including any implied warranty of merchantability or fitness for a particular purpose.</p>
+      <p><strong>This Section does not exclude, restrict, or modify the statutory guarantee of conformity or any other warranty that cannot be excluded under applicable consumer law</strong>, including the Mexican Federal Consumer Protection Law (LFPC). Where such law applies, the User retains all warranty rights it grants.</p>
+    </section>
+
+    <section class="privacy-section" id="en-12">
+      <div class="sec-eyebrow">Section 12</div>
+      <h2>Limitation of liability</h2>
+      <p>To the <strong>maximum extent permitted by applicable law</strong>, the Licensor shall not be liable for indirect, incidental, special, or consequential damages, or for loss of data or profits, arising from the use of or inability to use the Software. The Licensor's <strong>aggregate liability</strong> under this Agreement shall not exceed the <strong>amount actually paid by the User for the Software</strong>.</p>
+      <p>Nothing in this Section limits the Licensor's liability for <strong>willful misconduct or gross negligence</strong>, nor liability that cannot be limited under applicable law. Consistent with Article 90(II) of the Mexican LFPC, this Section does not release the Licensor from civil liability except in the case of the User's breach of this Agreement.</p>
+    </section>
+
+    <section class="privacy-section" id="en-13">
+      <div class="sec-eyebrow">Section 13</div>
+      <h2>Non-waivable consumer rights (savings clause)</h2>
+      <p>Notwithstanding any other provision, <strong>nothing in this Agreement excludes, restricts, or waives any right that the User holds as a consumer and that cannot be waived under applicable law</strong>, including the Mexican Federal Consumer Protection Law (LFPC). Any provision that would conflict with such non-waivable rights shall be read down to the minimum extent necessary to comply, and the remainder shall continue in force.</p>
+    </section>
+
+    <section class="privacy-section" id="en-14">
+      <div class="sec-eyebrow">Section 14</div>
+      <h2>Governing law, jurisdiction, and consumer forum</h2>
+      <p>This Agreement is governed by the laws of the <strong>United Mexican States</strong>. The parties submit to the competent courts of <strong>Mexico City (Ciudad de México)</strong>.</p>
+      <p><strong>Consumer protection.</strong> Where the User is a consumer domiciled in Mexico, <strong>nothing in this Section deprives the User of the protection of the LFPC</strong>, of the competence of the <strong>Federal Consumer Protection Agency (PROFECO)</strong>, or of the User's right to bring proceedings in the forum of the User's own domicile. No arbitration is imposed on consumers.</p>
+    </section>
+
+    <section class="privacy-section" id="en-15">
+      <div class="sec-eyebrow">Section 15</div>
+      <h2>Modifications and assignment by the Licensor</h2>
+      <h3>15.1 Modifications of terms</h3>
+      <p>The Licensor may issue <strong>future versions or editions</strong> of the product under updated terms. Such updated terms apply only to the corresponding new product or version; <strong>the terms applicable to your purchased version are those in force at the time of your purchase</strong> and will not be modified unilaterally to your detriment.</p>
+      <h3>15.2 Assignment by the Licensor to a successor</h3>
+      <p>The User <strong>expressly consents in advance</strong> that the Licensor may <strong>assign this Agreement, together with all License Keys, Installation Slots, and rights and obligations under it</strong>, to a <strong>successor</strong> of the Licensor in any of the following events:</p>
+      <p>(a) reorganization of the Licensor's legal form, including incorporation of a Mexican commercial company to which the business is transferred; (b) sale or transfer of the business or of the product line to a third party; (c) merger, consolidation, or similar transaction; (d) inheritance or legal succession.</p>
+      <p>Any such assignment is conditional upon the successor <strong>assuming, without modification, all obligations of the Licensor under this Agreement</strong> with respect to the User. The User's rights — in particular the perpetual license, the Slot entitlement set out in Section 3, the one-time cloning remediation under Section 8.1, the continuity commitment under Section 7.2, and the protections under Sections 11 to 13 — remain <strong>fully preserved</strong> following assignment.</p>
+      <p>The Licensor will give <strong>reasonable notice</strong> of such assignment by means appropriate to the channel (e.g., publication on <strong>3doce56.com</strong> or successor URL, and/or in-application notification on next launch). No further consent from the User is required for an assignment that complies with this Section.</p>
+      <p>This Section does not authorize the Licensor to <strong>release itself unilaterally</strong> from its obligations: the obligations are transferred to and assumed by the successor; they are not extinguished.</p>
+    </section>
+
+    <section class="privacy-section" id="en-16">
+      <div class="sec-eyebrow">Section 16</div>
+      <h2>Severability</h2>
+      <p>If any provision of this Agreement is held invalid, void, or unenforceable, that provision shall be severed and the remaining provisions shall remain in full force and effect.</p>
+    </section>
+
+    <section class="privacy-section" id="en-17">
+      <div class="sec-eyebrow">Section 17</div>
+      <h2>Language</h2>
+      <p>The <strong>English</strong> version of this Agreement is the canonical and governing version for all Users <strong>other than</strong> consumers domiciled in Mexico.</p>
+      <p>For <strong>consumers domiciled in Mexico</strong>, an <strong>operative Spanish-language version</strong> of this Agreement governs and is binding; the Spanish version for Mexican consumers is <strong>not</strong> a mere courtesy translation. A Spanish translation published for other territories is provided for convenience and is non-binding where the English version governs.</p>
+    </section>
+
+    <section class="privacy-section" id="en-18">
+      <div class="sec-eyebrow">Section 18</div>
+      <h2>Entire agreement</h2>
+      <p>This Agreement, together with the Privacy Notice (incorporated by reference) and the applicable Platform terms (for purchase and refund matters), constitutes the entire agreement between the parties regarding the license to use the Software, and supersedes any prior understanding on that subject.</p>
+    </section>
+
+    <section class="privacy-section" id="en-19">
+      <div class="sec-eyebrow">Section 19</div>
+      <h2>Contact</h2>
+      <p><strong>Carlos Benito Carpintero</strong> (commercial name <strong>3doce56</strong>) Legal: <strong>legal@3doce56.com</strong> · Support: <strong>support@3doce56.com</strong> · <strong>3doce56.com</strong></p>
+      <p><strong>Language of support.</strong> Support, sales enquiries, and general correspondence are handled in <strong>English and Spanish only</strong>. Communications received in other languages cannot be processed, and the User is kindly asked to resubmit in English or Spanish. This limitation does not apply to the exercise of the data subject's rights over personal data (ARCO rights and equivalents), which are handled in any language in accordance with the Privacy Notice.</p>
+    </section>
+  </div>
+
+  <!-- ════ ESPAÑOL ════ -->
+  <div data-lang="es">
+    <nav class="toc" aria-label="Índice">
+      <div class="toc-label">Índice</div>
+      <ol>
+        <li><a href="#es-1">Objeto</a></li>
+        <li><a href="#es-2">Definiciones</a></li>
+        <li><a href="#es-3">Concesión de la licencia</a></li>
+        <li><a href="#es-4">Restricciones</a></li>
+        <li><a href="#es-5">Propiedad intelectual</a></li>
+        <li><a href="#es-6">Compra y reembolsos — Merchant of Record</a></li>
+        <li><a href="#es-7">Inexistencia de obligación de actualizaciones o soporte; continuidad de la licencia perpetua</a></li>
+        <li><a href="#es-8">Vigencia y terminación</a></li>
+        <li><a href="#es-9">Efectos de la terminación</a></li>
+        <li><a href="#es-10">Privacidad y validación de la licencia</a></li>
+        <li><a href="#es-11">Garantía — exención y umbral legal</a></li>
+        <li><a href="#es-12">Limitación de responsabilidad</a></li>
+        <li><a href="#es-13">Derechos irrenunciables del consumidor (cláusula de salvaguarda)</a></li>
+        <li><a href="#es-14">Legislación aplicable, jurisdicción y foro del consumidor</a></li>
+        <li><a href="#es-15">Modificaciones y cesión por parte del Licenciante</a></li>
+        <li><a href="#es-16">Independencia de las cláusulas</a></li>
+        <li><a href="#es-17">Idioma</a></li>
+        <li><a href="#es-18">Acuerdo íntegro</a></li>
+        <li><a href="#es-19">Contacto</a></li>
+      </ol>
+    </nav>
+
+    <section class="privacy-section" id="es-1">
+      <div class="sec-eyebrow">Sección 1</div>
+      <h2>Objeto</h2>
+      <p>Este Contrato regula <strong>la licencia de uso del Software</strong> que el Licenciante otorga al Usuario. <strong>No</strong> regula la compra del Software. La compra es una operación independiente, ejecutada por la plataforma de distribución que actúa como Merchant of Record, conforme a sus propios términos (véase la Sección 6).</p>
+    </section>
+
+    <section class="privacy-section" id="es-2">
+      <div class="sec-eyebrow">Sección 2</div>
+      <h2>Definiciones</h2>
+      <ul><li><strong>Software</strong> — la aplicación de escritorio RelojSolarLunar y todos los archivos, ventanas de datos, recursos gráficos y documentación asociados, en cualquier edición visual.</li><li><strong>Clave de Licencia</strong> — el código de activación entregado al Usuario tras la compra a través del canal Gumroad, con el formato <code>RSL-PERG-XXXX-XXXX-XXXX</code> para la edición Pergamino y <code>RSL-GAME-XXXX-XXXX-XXXX</code> para la edición Game on (el segmento de cuatro letras identifica la edición del producto).</li><li><strong>Instalación Activa</strong> — una instalación del Software activada con una Clave de Licencia válida en un dispositivo concreto.</li><li><strong>Espacio de Instalación</strong> ("Slot") — una de las posiciones limitadas que la Clave de Licencia pone a disposición para Instalaciones Activas en el canal Gumroad (véase la Sección 3).</li><li><strong>Plataforma</strong> — Gumroad o Microsoft Store, según corresponda, actuando como Merchant of Record para la venta.</li><li><strong>Identificador de Instalación</strong> — un identificador técnico derivado del hardware, utilizado exclusivamente para validar la licencia (véase la Sección 10).</li><li><strong>Servicio de Validación de Licencias</strong> — el servicio en línea del Licenciante que valida las Claves de Licencia y los Identificadores de Instalación durante la operación.</li></ul>
+    </section>
+
+    <section class="privacy-section" id="es-3">
+      <div class="sec-eyebrow">Sección 3</div>
+      <h2>Concesión de la licencia</h2>
+      <p>Sujeto al cumplimiento de este Contrato por parte del Usuario, el Licenciante concede a Usted una licencia <strong>personal, no exclusiva, intransferible y perpetua</strong> para instalar y usar el Software para su propio uso. Esta es una licencia de uso únicamente; <strong>no se transfiere la propiedad del Software</strong>.</p>
+      <h3>3.1 Número de Espacios de Instalación</h3>
+      <p><strong>Canal Gumroad.</strong> Cada Clave de Licencia da derecho a un máximo de <strong>dos (2) Espacios de Instalación</strong>, es decir, hasta dos Instalaciones Activas simultáneas. Los dos Espacios constituyen el <strong>derecho total de instalación</strong> otorgado por la Clave de Licencia.</p>
+      <p><strong>Canal Microsoft Store.</strong> El número de instalaciones y la asociación de dispositivos se rigen por la <strong>política nativa de Microsoft</strong>, vinculada a la cuenta Microsoft del Usuario, y son <strong>efectivamente ilimitados dentro de los límites que Microsoft establezca</strong>. El límite de dos Espacios establecido para el canal Gumroad <strong>no aplica</strong> a las compras realizadas a través de Microsoft Store.</p>
+      <h3>3.2 Gestión autónoma de Espacios (canal Gumroad)</h3>
+      <p>El Software incluye una función — <strong>"Desactivar esta instalación"</strong> — mediante la cual <strong>Usted</strong> puede liberar un Espacio de Instalación ocupado por un dispositivo determinado, a fin de mover su licencia a otro dispositivo por sí mismo. Esta función es el <strong>único mecanismo</strong> disponible para Usted para liberar un Espacio.</p>
+      <h3>3.3 No restitución de Espacios</h3>
+      <p>Los Espacios se consumen con cada Instalación Activa a medida que se producen. En particular:</p>
+      <p>(a) cualquier <strong>cambio de hardware</strong> que el mecanismo de validación del Software perciba como un nuevo dispositivo consume un Espacio. Es <strong>responsabilidad del Usuario</strong> utilizar la función "Desactivar esta instalación" en el dispositivo anterior <strong>antes</strong> del cambio de hardware, a fin de no perder el Espacio;</p>
+      <p>(b) si un Espacio se pierde porque la función "Desactivar esta instalación" no se utilizó a tiempo, el Licenciante <strong>no restituye Espacios</strong>, no concede excepciones manuales y no proporciona instalaciones de reemplazo más allá del derecho establecido en la Sección 3.1;</p>
+      <p>(c) la política de Espacios es aplicada automática y estrictamente por el Servicio de Validación de Licencias. Los canales de atención al cliente del Licenciante <strong>no están autorizados</strong> a anular su aplicación.</p>
+      <p>Esta Sección no excluye ni limita los derechos irrenunciables que el Usuario ostente como consumidor conforme a la legislación aplicable (véase la Sección 13).</p>
+    </section>
+
+    <section class="privacy-section" id="es-4">
+      <div class="sec-eyebrow">Sección 4</div>
+      <h2>Restricciones</h2>
+      <p>Usted no podrá, ni permitirá que un tercero:</p>
+      <p>(a) realice ingeniería inversa, descompile o desensamble el Software, salvo en la medida en que dicha restricción esté expresamente prohibida por la legislación aplicable; (b) copie, redistribuya, publique, alquile, arriende, preste, revenda o de otro modo ponga el Software a disposición de terceros; (c) sublicencie, ceda o transfiera la Clave de Licencia o sus derechos bajo este Contrato, salvo cuando la ley así lo exija; (d) eluda, deshabilite o manipule los mecanismos de validación de licencia, de Espacios o de activación; (e) elimine o altere cualquier aviso de propiedad, marca o identificador.</p>
+    </section>
+
+    <section class="privacy-section" id="es-5">
+      <div class="sec-eyebrow">Sección 5</div>
+      <h2>Propiedad intelectual</h2>
+      <h3>5.1 Titularidad</h3>
+      <p>El Software, incluido su código fuente y objeto, las marcas <strong>3doce56</strong> y <strong>RelojSolarLunar</strong>, y todos los recursos gráficos y audiovisuales, son y seguirán siendo propiedad exclusiva del Licenciante y están protegidos por la legislación aplicable en materia de propiedad intelectual. Este Contrato otorga únicamente la licencia limitada expresamente establecida en la Sección 3 y reserva todos los demás derechos.</p>
+      <h3>5.2 Componentes de terceros</h3>
+      <p>El Software incorpora los siguientes componentes de terceros, utilizados bajo sus respectivas licencias:</p>
+      <ul><li>Datos geográficos: base de datos GeoNames (https://www.geonames.org), bajo licencia Creative Commons Attribution 4.0 (https://creativecommons.org/licenses/by/4.0/).</li><li>Cálculos astronómicos: biblioteca PyEphem (https://rhodesmill.org/pyephem/), bajo licencia LGPL.</li></ul>
+      <p>Todos los demás componentes son propiedad del Licenciante.</p>
+    </section>
+
+    <section class="privacy-section" id="es-6">
+      <div class="sec-eyebrow">Sección 6</div>
+      <h2>Compra y reembolsos — Merchant of Record</h2>
+      <p>El Software se vende exclusivamente a través de la Plataforma (Gumroad o Microsoft Store), que actúa como <strong>Merchant of Record</strong>. En consecuencia:</p>
+      <p>(a) la venta, el procesamiento de pagos, los impuestos al consumo aplicables y la <strong>política de reembolso</strong> se rigen por los <strong>términos propios de la Plataforma</strong>, no por este Contrato; (b) el Licenciante <strong>no es parte en la venta</strong> y <strong>no</strong> administra ni asume obligación directa alguna de reembolso; toda solicitud de reembolso deberá dirigirse a la Plataforma; (c) aplica la política de reembolso de la Plataforma (ventana de referencia: 14 días, conforme a la práctica actual de las Plataformas; sujeta a los términos de la Plataforma).</p>
+      <p>Nada de lo establecido en esta Sección excluye o limita los derechos irrenunciables que el Usuario ostente como consumidor conforme a la legislación aplicable (véanse las Secciones 11, 12 y 13).</p>
+    </section>
+
+    <section class="privacy-section" id="es-7">
+      <div class="sec-eyebrow">Sección 7</div>
+      <h2>Inexistencia de obligación de actualizaciones o soporte; continuidad de la licencia perpetua</h2>
+      <h3>7.1 Inexistencia de obligación de actualizaciones o soporte</h3>
+      <p>El Software es un <strong>producto terminado vendido mediante un pago único</strong>. El Licenciante <strong>no tiene obligación</strong> de proporcionar actualizaciones, mejoras, mantenimiento ni soporte continuado. Cualquier versión mayor futura constituye un <strong>producto nuevo e independiente, que requiere una compra nueva</strong>; los adquirentes de la versión actual no adquieren derecho alguno sobre dicha versión futura.</p>
+      <h3>7.2 Continuidad de la licencia perpetua si se discontinúa el servicio de validación</h3>
+      <p>La licencia otorgada en la Sección 3 es <strong>perpetua</strong>. Si el Licenciante discontinúa permanentemente el <strong>Servicio de Validación de Licencias</strong> — en particular, si el Licenciante cesa la actividad de modo que el backend de validación deja de mantenerse —, el Licenciante, <strong>sin costo para Usted y como condición de la perpetuidad de su licencia</strong>, pondrá a disposición una actualización final del Software que <strong>elimine la dependencia del Servicio de Validación de Licencias</strong>, de manera que las instalaciones previamente activadas sigan siendo utilizables.</p>
+      <p>Este compromiso no obliga al Licenciante a proporcionar ulteriores actualizaciones, funcionalidades o soporte tras dicha actualización final.</p>
+    </section>
+
+    <section class="privacy-section" id="es-8">
+      <div class="sec-eyebrow">Sección 8</div>
+      <h2>Vigencia y terminación</h2>
+      <p>Esta licencia es perpetua, pero <strong>terminará automáticamente</strong> al producirse cualquiera de las siguientes <strong>causas objetivas</strong>:</p>
+      <p>(a) un reembolso de la compra, concedido por la Plataforma; (b) una reversión de pago o contracargo (chargeback) que afecte a la compra; (c) la detección de <strong>clonación o uso fraudulento</strong> de una misma Clave de Licencia en múltiples dispositivos en infracción de la Sección 3, con las consecuencias establecidas en la Sección 8.1; (d) el ejercicio por parte del Usuario del derecho de supresión de datos personales que imposibilite la validación de la licencia, cuando dicha supresión sea solicitada por el Usuario (véase el Aviso de Privacidad); (e) el incumplimiento sustancial de este Contrato por parte del Usuario.</p>
+      <p>La terminación bajo los incisos (a) o (b) refleja la falta de la contraprestación sobre la cual se concedió la licencia. El Licenciante no se reserva, ni ejercerá, facultad alguna de terminación discrecional o a voluntad fuera de las causas aquí enumeradas.</p>
+      <h3>8.1 Clonación — remediación por única vez</h3>
+      <p>El Licenciante distingue entre la Clave de Licencia (la credencial emitida al Usuario) y el derecho subyacente (el derecho a usar el Software). Para proteger al Usuario que actuó de buena fe frente a la reutilización fraudulenta de su credencial:</p>
+      <p>(a) <strong>En la primera detección</strong> de clonación o uso fraudulento de una Clave de Licencia en múltiples dispositivos, el Licenciante notificará al Usuario, revocará los Identificadores de Instalación afectados y emitirá <strong>una nueva Clave de Licencia como remediación por única vez</strong>. El derecho subyacente del Usuario se preserva, y el Usuario podrá reinstalar el Software utilizando la nueva Clave de Licencia.</p>
+      <p>(b) <strong>En cualquier detección posterior</strong> de clonación o uso fraudulento que afecte al mismo Usuario, la licencia <strong>terminará definitivamente sin remediación adicional</strong>, y no se emitirá una nueva Clave de Licencia.</p>
+      <p>La remediación prevista en el inciso (a) se otorga una sola vez por Usuario y no constituye un derecho recurrente.</p>
+    </section>
+
+    <section class="privacy-section" id="es-9">
+      <div class="sec-eyebrow">Sección 9</div>
+      <h2>Efectos de la terminación</h2>
+      <p>Tras la terminación, el derecho del Usuario a usar el Software cesa, y la Clave de Licencia podrá ser invalidada. Usted deberá cesar el uso y desinstalar el Software. Las Secciones 4, 5, 7.2, 8.1, 11, 12, 13, 14, 16, 17 y 18 sobreviven a la terminación.</p>
+    </section>
+
+    <section class="privacy-section" id="es-10">
+      <div class="sec-eyebrow">Sección 10</div>
+      <h2>Privacidad y validación de la licencia</h2>
+      <p>Para validar la licencia, el Software transmite periódicamente al Servicio de Validación de Licencias un <strong>Identificador de Instalación</strong> técnico (un hash derivado del hardware, no datos personales directos), junto con el país, el sistema operativo y la versión.</p>
+      <p>El tratamiento de datos personales se rige exclusivamente por el <strong>Aviso de Privacidad</strong> del Licenciante, disponible en <strong>3doce56.com/privacy</strong>, elaborado conforme a la legislación mexicana en materia de protección de datos personales y al RGPD de la Unión Europea. Este Contrato no sustituye al Aviso de Privacidad y lo incorpora por referencia.</p>
+    </section>
+
+    <section class="privacy-section" id="es-11">
+      <div class="sec-eyebrow">Sección 11</div>
+      <h2>Garantía — exención y umbral legal</h2>
+      <p>En la <strong>máxima medida permitida por la legislación aplicable</strong>, el Software se proporciona "<strong>TAL CUAL</strong>" y "<strong>SEGÚN DISPONIBILIDAD</strong>", sin garantías de ningún tipo, ya sean expresas, implícitas o legales más allá de lo que la ley exija, incluida cualquier garantía implícita de comerciabilidad o de idoneidad para un propósito particular.</p>
+      <p><strong>Esta Sección no excluye, restringe ni modifica la garantía legal de conformidad ni cualquier otra garantía que no pueda excluirse conforme a la legislación de protección al consumidor aplicable</strong>, incluida la Ley Federal de Protección al Consumidor (LFPC). Cuando dicha legislación resulte aplicable, el Usuario conserva todos los derechos de garantía que dicha legislación le confiera.</p>
+    </section>
+
+    <section class="privacy-section" id="es-12">
+      <div class="sec-eyebrow">Sección 12</div>
+      <h2>Limitación de responsabilidad</h2>
+      <p>En la <strong>máxima medida permitida por la legislación aplicable</strong>, el Licenciante no será responsable por daños indirectos, incidentales, especiales o consecuenciales, ni por pérdida de datos o de beneficios, derivados del uso o de la imposibilidad de uso del Software. La <strong>responsabilidad agregada</strong> del Licenciante bajo este Contrato no excederá del <strong>importe efectivamente pagado por el Usuario por el Software</strong>.</p>
+      <p>Nada en esta Sección limita la responsabilidad del Licenciante por <strong>dolo o culpa grave</strong>, ni la responsabilidad que no pueda limitarse conforme a la legislación aplicable. De manera congruente con el artículo 90, fracción II, de la LFPC, esta Sección no exime al Licenciante de responsabilidad civil salvo en el caso de incumplimiento de este Contrato por parte del Usuario.</p>
+    </section>
+
+    <section class="privacy-section" id="es-13">
+      <div class="sec-eyebrow">Sección 13</div>
+      <h2>Derechos irrenunciables del consumidor (cláusula de salvaguarda)</h2>
+      <p>No obstante cualquier otra disposición, <strong>nada en este Contrato excluye, restringe ni renuncia a derecho alguno que el Usuario ostente como consumidor y que no pueda renunciarse conforme a la legislación aplicable</strong>, incluida la Ley Federal de Protección al Consumidor (LFPC). Cualquier disposición que entrase en conflicto con tales derechos irrenunciables se interpretará reducida al mínimo necesario para cumplir con la ley, y el resto permanecerá en plena vigencia.</p>
+    </section>
+
+    <section class="privacy-section" id="es-14">
+      <div class="sec-eyebrow">Sección 14</div>
+      <h2>Legislación aplicable, jurisdicción y foro del consumidor</h2>
+      <p>Este Contrato se rige por las leyes de los <strong>Estados Unidos Mexicanos</strong>. Las partes se someten a la competencia de los tribunales de la <strong>Ciudad de México</strong>.</p>
+      <p><strong>Protección al consumidor.</strong> Cuando el Usuario sea un consumidor con domicilio en México, <strong>nada en esta Sección priva al Usuario de la protección de la LFPC</strong>, de la competencia de la <strong>Procuraduría Federal del Consumidor (PROFECO)</strong>, ni del derecho del Usuario a iniciar procedimientos en el foro de su propio domicilio. No se impone arbitraje a los consumidores.</p>
+    </section>
+
+    <section class="privacy-section" id="es-15">
+      <div class="sec-eyebrow">Sección 15</div>
+      <h2>Modificaciones y cesión por parte del Licenciante</h2>
+      <h3>15.1 Modificación de los términos</h3>
+      <p>El Licenciante podrá emitir <strong>versiones o ediciones futuras</strong> del producto bajo términos actualizados. Tales términos actualizados aplicarán únicamente al nuevo producto o versión correspondiente; <strong>los términos aplicables a la versión adquirida por Usted son los vigentes al momento de su compra</strong> y no se modificarán unilateralmente en su perjuicio.</p>
+      <h3>15.2 Cesión por el Licenciante a un sucesor</h3>
+      <p>El Usuario <strong>consiente expresa y anticipadamente</strong> que el Licenciante pueda <strong>ceder este Contrato, junto con todas las Claves de Licencia, los Espacios de Instalación, y los derechos y obligaciones derivados del mismo</strong>, a un <strong>sucesor</strong> del Licenciante en cualquiera de los siguientes supuestos:</p>
+      <p>(a) reorganización de la forma legal del Licenciante, incluida la constitución de una sociedad mercantil mexicana a la que se transfiera el negocio; (b) venta o transmisión del negocio o de la línea de producto a un tercero; (c) fusión, consolidación u operación similar; (d) herencia o sucesión legal.</p>
+      <p>Cualquier cesión de este tipo está condicionada a que el sucesor <strong>asuma, sin modificación, todas las obligaciones del Licenciante bajo este Contrato</strong> frente al Usuario. Los derechos del Usuario — en particular, la licencia perpetua, el derecho a los Espacios establecido en la Sección 3, la remediación única por clonación de la Sección 8.1, el compromiso de continuidad de la Sección 7.2 y las protecciones de las Secciones 11 a 13 — se mantienen <strong>íntegramente preservados</strong> tras la cesión.</p>
+      <p>El Licenciante dará <strong>aviso razonable</strong> de dicha cesión por los medios apropiados al canal (por ejemplo, publicación en <strong>3doce56.com</strong> o URL sucesora, y/o notificación en la aplicación al siguiente inicio). No se requiere consentimiento adicional del Usuario para una cesión que cumpla con esta Sección.</p>
+      <p>Esta Sección no autoriza al Licenciante a <strong>liberarse unilateralmente</strong> de sus obligaciones: las obligaciones se transfieren al sucesor, que las asume; no se extinguen.</p>
+    </section>
+
+    <section class="privacy-section" id="es-16">
+      <div class="sec-eyebrow">Sección 16</div>
+      <h2>Independencia de las cláusulas</h2>
+      <p>Si alguna disposición de este Contrato fuese declarada inválida, nula o inexigible, dicha disposición se considerará separada del resto, y las disposiciones restantes permanecerán en plena vigencia.</p>
+    </section>
+
+    <section class="privacy-section" id="es-17">
+      <div class="sec-eyebrow">Sección 17</div>
+      <h2>Idioma</h2>
+      <p>La versión en <strong>inglés</strong> de este Contrato es la versión canónica y rectora para todos los Usuarios <strong>distintos</strong> de los consumidores con domicilio en México.</p>
+      <p>Para los <strong>consumidores con domicilio en México</strong>, una <strong>versión operativa en español</strong> de este Contrato rige y es vinculante; la versión en español para los consumidores mexicanos <strong>no</strong> es una mera traducción de cortesía. Cualquier traducción al español publicada para otros territorios se proporciona por conveniencia y no es vinculante cuando la versión en inglés rija.</p>
+    </section>
+
+    <section class="privacy-section" id="es-18">
+      <div class="sec-eyebrow">Sección 18</div>
+      <h2>Acuerdo íntegro</h2>
+      <p>Este Contrato, junto con el Aviso de Privacidad (incorporado por referencia) y los términos aplicables de la Plataforma (para las cuestiones de compra y reembolso), constituye el acuerdo íntegro entre las partes en relación con la licencia de uso del Software, y prevalece sobre cualquier entendimiento previo sobre dicha materia.</p>
+    </section>
+
+    <section class="privacy-section" id="es-19">
+      <div class="sec-eyebrow">Sección 19</div>
+      <h2>Contacto</h2>
+      <p><strong>Carlos Benito Carpintero</strong> (nombre comercial <strong>3doce56</strong>) Legal: <strong>legal@3doce56.com</strong> · Soporte: <strong>support@3doce56.com</strong> · <strong>3doce56.com</strong></p>
+      <p><strong>Idioma de atención.</strong> El soporte, las consultas comerciales y las comunicaciones generales se atienden en <strong>inglés y español únicamente</strong>. Las comunicaciones recibidas en otros idiomas no podrán ser atendidas, y se ruega al Usuario reformularlas en inglés o español. Esta limitación no aplica al ejercicio de los derechos del titular sobre sus datos personales (derechos ARCO y equivalentes), que serán atendidos en cualquier idioma conforme al Aviso de Privacidad.</p>
+    </section>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-identity">
+      <div class="footer-brand">
+        <a class="brand3" href="../" aria-label="3doce56 — inicio">3<span class="doce">doce</span>56</a>
+      </div>
+      <div class="footer-copy">© 2026 Carlos Benito · 3doce56.com</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="../">Home</a></li>
+      <li><a href="../privacy/">Privacy notice</a></li>
+      <li><a href="../terms/">Terms</a></li>
+      <li><a href="../support/">Support</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.body.className='lang-'+lang;
+    document.getElementById('btn-en').classList.toggle('active',lang==='en');
+    document.getElementById('btn-es').classList.toggle('active',lang==='es');
+    document.documentElement.lang=lang;
+    window.scrollTo({top:0,behavior:'smooth'});
+    try{localStorage.setItem('rsl_lang',lang)}catch(e){}
+  }
+  (function(){
+    try{const s=localStorage.getItem('rsl_lang');if(s){setLang(s);return}}catch(e){}
+    setLang((navigator.language||'en').toLowerCase().startsWith('es')?'es':'en');
+  })();
+</script>
+
+</body>
+</html>
